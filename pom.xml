@@ -8,13 +8,6 @@
     <artifactId>crawler</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <developers>
-        <developer>
-            <name>Bing Liu</name>
-            <email>bingliu212536@sohu-inc.com</email>
-        </developer>
-    </developers>
-
     <properties>
         <java.version>1.7</java.version>
         <org.slf4j-version>1.6.1</org.slf4j-version>

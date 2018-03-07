@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="parentDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		abstract="true" 
+		p:driverClassName="com.mysql.jdbc.Driver"
+		p:maxActive="100" 
+		p:maxIdle="30" 
+		p:maxWait="60000" 
+		p:testOnBorrow="true"
+		p:testWhileIdle="true" 
+		p:removeAbandoned="true"
+		p:removeAbandonedTimeout="1000" 
+		p:validationQuery="select 1"
+		p:poolPreparedStatements="true" 
+		p:defaultAutoCommit="true"
+		p:connectionInitSqls="set names utf8mb4"/>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="dataSource" parent="parentDataSource" destroy-method="close"
+		  p:url="${mysql.url}"
+		  p:username="${mysql.username}"
+		  p:password="${mysql.password}"
+	/>
+
+</beans>

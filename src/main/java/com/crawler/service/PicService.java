@@ -5,6 +5,8 @@ import com.crawler.model.Pic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by admin on 2018/3/6.
  */
@@ -16,5 +18,9 @@ public class PicService {
 
     public void save(Pic pic){
         picMapper.save(pic);
+    }
+
+    public List<Pic> getPicList(Integer start, Integer offset, Integer category){
+        return picMapper.getPicList(start, offset, category);
     }
 }

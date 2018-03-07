@@ -17,8 +17,18 @@
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from project_comment
-        where id = #{id,jdbcType=INTEGER}
+        from pic
+        where id = #{id}
+    </select>
+    <select id="getPicList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from pic
+        <if test="category != null">
+            where category = #{category}
+        </if>
+        ORDER BY create_time desc
+        limit #{start},#{offset}
     </select>
     <insert id="save" parameterType="com.crawler.model.Pic" useGeneratedKeys="true"
             keyProperty="id">

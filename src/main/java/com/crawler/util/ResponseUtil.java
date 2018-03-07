@@ -21,6 +21,7 @@ public class ResponseUtil {
     public static final Integer FAILURE_CODE_ITEMEXIST = -5;
     public static final String CODE = "code";
     public static final String MESSAGE = "msg";
+    public static final String EXTRA_MSG = "extra";
     public static final String SUCCESS_MESSAGE = "操作成功";
     public static final String DATA = "data";
     public static final Map<Integer, String> FAILURE_CODE_MSG = new HashMap<Integer, String>();
@@ -70,6 +71,14 @@ public class ResponseUtil {
         JSONObject result = new JSONObject();
         result.put(CODE, code);
         result.put(MESSAGE, msg);
+        return result;
+    }
+
+    public static JSONObject error(int code, String msg, String extra){
+        JSONObject result = new JSONObject();
+        result.put(CODE, code);
+        result.put(MESSAGE, msg);
+        result.put(EXTRA_MSG, extra);
         return result;
     }
 

@@ -1,0 +1,29 @@
+<html>
+<script src="javascripts/jquery.min.js"></script>
+<body>
+<h2>Tool</h2>
+<button id="submit">Update CityDirectory</button><hr>
+show name:<input id="u1" type="text">
+user name:<input id="u2" type="text">
+<button id="save">save</button>
+<!--Progress:-->
+<!--<span id="progress">0%</span>-->
+</body>
+<script>
+    $("#submit").click(function () {
+        var pwd = prompt("enter the pwd");
+        $.get("//house-sv-base.focus.cn/tool/updateCityDirectoryInfo?pwd=" + pwd, function (data) {
+            alert(data);
+        });
+    });
+    $("#save").click(function(){
+        var userInfo = {
+            showName : $("#u1").val(),
+            userName : $("#u2").val()
+        }
+        $.post("//localhost:8081/save", userInfo, function (data) {
+           alert(data);
+        });
+    });
+</script>
+</html>

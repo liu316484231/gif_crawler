@@ -30,13 +30,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/admin/**")
-                .allowedOrigins("*")
-                .allowCredentials(true)
-                .allowedMethods("*")
-                .maxAge(3600)
-                .allowedHeaders("*");
-        registry.addMapping("/enroll")
+        registry.addMapping("/**")
                 .allowedOrigins("*")
                 .allowCredentials(true)
                 .allowedMethods("*")

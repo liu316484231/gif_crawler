@@ -14,4 +14,9 @@
 		p:sqlSessionFactory-ref="sqlSessionFactory"
 	/>
 
+	<bean id="commentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"
+		  p:mapperInterface="com.crawler.dao.CommentMapper"
+		  p:sqlSessionFactory-ref="sqlSessionFactory"
+	/>
+
 </beans>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crawler.dao.CommentMapper">
+    <resultMap id="BaseResultMap" type="com.crawler.model.Comment">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="gid" jdbcType="INTEGER" property="gid"/>
+        <result column="comment" jdbcType="VARCHAR" property="comment"/>
+        <result column="user" jdbcType="VARCHAR" property="user"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="status" jdbcType="TINYINT" property="status"/>
+        <result column="is_cream" jdbcType="TINYINT" property="isCream"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, gid, comment, user, create_time, status, is_cream
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        where id = #{id}
+    </select>
+    <select id="getCommentList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from comment
+        where gid = #{gid}
+        ORDER BY create_time desc
+        limit 10
+    </select>
+    <insert id="save" parameterType="com.crawler.model.Comment" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into comment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="gid != null">
+                gid,
+            </if>
+            <if test="comment != null">
+                comment,
+            </if>
+            <if test="user != null">
+                user,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="isCream != null">
+                is_cream,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="gid != null">
+                #{gid},
+            </if>
+            <if test="comment != null">
+                #{comment},
+            </if>
+            <if test="user != null">
+                #{user},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="status != null">
+                #{status},
+            </if>
+            <if test="isCream != null">
+                #{isCream},
+            </if>
+        </trim>
+    </insert>
+</mapper>

@@ -11,4 +11,15 @@ CREATE TABLE `pic` (
   `my_url` varchar(100) NOT NULL DEFAULT '' COMMENT '后期使用',
   PRIMARY KEY (`id`),
   UNIQUE KEY `u_url` (`url`)
-) ENGINE=InnoDB AUTO_INCREMENT=742 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `comment` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT '评论id',
+  `gid` int(10) NOT NULL DEFAULT '0' COMMENT 'gif id',
+  `comment` varchar(500) CHARACTER SET utf8mb4 NOT NULL DEFAULT '' COMMENT '评论内容',
+  `user` varchar(20) NOT NULL DEFAULT '0' COMMENT '评论发布人标示',
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '评论发布时间',
+  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '显示状态0删除1显示',
+  `is_cream` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否是精华',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

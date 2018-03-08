@@ -1,6 +1,7 @@
 package com.crawler.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by admin on 2018/3/6.
@@ -14,6 +15,15 @@ public class Pic {
     private Date createTime;
     private Date updateTime;
     private String source;
+    private List<Comment> commentList;
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
 
     public Integer getId() {
         return id;

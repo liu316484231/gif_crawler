@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="stylesheets/bulma.css">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar is-fixed-top">
+<nav class="navbar is-fixed-top is-light">
     <div class="container">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
@@ -21,16 +22,16 @@
                 </a>
             </div>
             <div class="navbar-menu">
-                <!--<div class="navbar-start">-->
-                <!--<div class="navbar-item">-->
-                <!--<p style="font-size: 50px;"><strong style="color: black">首页</strong></p>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="navbar-end">-->
-                <!--<div class="navbar-item">-->
-                <!--<p style="font-size: 30px; font-family: 微软雅黑"><strong style="color: black">分类</strong></p>-->
-                <!--</div>-->
-                <!--</div>-->
+                <div class="navbar-start">
+                <div class="navbar-item">
+                    <i class="fas fa-home-retro fa-5x"></i>
+                </div>
+                </div>
+                <div class="navbar-end">
+                <div class="navbar-item">
+                <p style="font-size: 30px; font-family: 微软雅黑"><strong style="color: black">分类</strong></p>
+                </div>
+                </div>
             </div>
         </nav>
     </div>
@@ -108,7 +109,7 @@
         props: ['item'],
         template: "<article class='tile is-child box'>" +
         "                        <p class='title'>{{item.title}}</p>" +
-        "                        <p class='subtitle'>{{item.origin}}</p>" +
+        "                        <p class='subtitle'>来源:{{item.origin}}</p>" +
         "                        <figure class='image is-4by3'>" +
         "                            <img v-bind:src='item.url'>" +
         "                        </figure>" +
@@ -133,6 +134,8 @@
             lists : []
         },
         created: function () {
+            //种入cookie
+
             var _self = this;
             $.get("/getGifList?pageNum=" + _self.pageNum + "&pageSize=" + _self.pageSize, function (data) {
                 _self.lists.push(data.data);

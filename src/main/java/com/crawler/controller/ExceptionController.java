@@ -24,25 +24,5 @@ public class ExceptionController {
         return ResponseUtil.error(ResponseUtil.FAILURE_CODE_SERVERERROR);
     }
 
-    @ExceptionHandler(MissingServletRequestParameterException.class)
-    @ResponseBody
-    public JSONObject handleMissingParamsException(MissingServletRequestParameterException ex) {
-        logger.error(ex.getMessage(), ex);
-        return ResponseUtil.error(ResponseUtil.FAILURE_CODE_BADPARAMS);
-    }
-
-    @ExceptionHandler(JSONException.class)
-    @ResponseBody
-    public JSONObject handleBadParamsException(JSONException ex) {
-        logger.error(ex.getMessage(), ex);
-        return ResponseUtil.error(ResponseUtil.FAILURE_CODE_BADPARAMS);
-    }
-
-    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-    @ResponseBody
-    public JSONObject handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex){
-        logger.error(ex.getMessage(), ex);
-        return ResponseUtil.error(ResponseUtil.FAILURE_CODE_NOTSUPPORTMETHOD);
-    }
 
 }

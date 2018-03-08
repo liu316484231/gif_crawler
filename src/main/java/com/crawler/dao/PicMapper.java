@@ -13,4 +13,6 @@ public interface PicMapper {
     void save(Pic pic);
 
     List<Pic> getPicList(@Param("start") Integer start,@Param("offset") Integer offset,@Param("category") Integer category);
+
+    Pic selectByPrimaryKey(@Param("id") Integer id);
 }

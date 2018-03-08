@@ -23,4 +23,8 @@ public class PicService {
     public List<Pic> getPicList(Integer start, Integer offset, Integer category){
         return picMapper.getPicList(start, offset, category);
     }
+
+    public Pic getGif(Integer id){
+        return picMapper.selectByPrimaryKey(id);
+    }
 }

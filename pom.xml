@@ -11,6 +11,7 @@
     <properties>
         <java.version>1.7</java.version>
         <org.slf4j-version>1.6.1</org.slf4j-version>
+        <maven.test.skip>true</maven.test.skip>
     </properties>
 
     <parent>

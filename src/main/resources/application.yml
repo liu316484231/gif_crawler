@@ -1,0 +1,18 @@
+server:
+  port: 9091
+
+mysql:
+  url: jdbc:mysql://10.18.35.136:3307/dbtest?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;autoReconnectForPools=true
+  username: fdbuser
+  password: Wslm:11Wps
+
+spring:
+  mvc:
+    dispatch-options-request: true
+    favicon:
+      enabled: false
+  aop:
+    auto: true
+  profiles:
+    active: test
+

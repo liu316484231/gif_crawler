@@ -2,3 +2,4 @@ node_modules
 .idea
 target
 crawler.iml
+application-pro.yml

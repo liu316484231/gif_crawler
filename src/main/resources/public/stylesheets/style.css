@@ -13,6 +13,9 @@ body {
     line-height: 1.2;
     font-family: "KaiTi", "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, "PingFang SC", "Helvetica Neue", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Helvetica, Arial, Verdana, sans-serif;
 }
-
+.body{
+    margin : 0;
+    padding :0;
+}
 
 

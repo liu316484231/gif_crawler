@@ -28,9 +28,10 @@ public class GifController {
     @RequestMapping(value = "/getGifList", method = RequestMethod.GET)
     public JSONObject getPicList(@RequestParam Integer pageSize,
                                  @RequestParam Integer pageNum,
-                                 Integer category) {
+                                 @RequestParam Integer category) {
         Integer start = pageNum  * pageSize;
         Integer offset = pageSize;
+        if(category.equals(-1)) category = null;
         List<Pic> list = picService.getPicList(start, offset, category);
         for(Pic pic : list){
             pic.setCommentList(commentService.getComments(pic.getId()));

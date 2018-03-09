@@ -1,6 +1,6 @@
 <html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Gifssss</title>
+    <title>Gif Gallery</title>
     <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/vue.min.js"></script>
     <link rel="stylesheet" href="stylesheets/animate.min.css">
@@ -12,36 +12,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar is-fixed-top">
+<div id="toTop" style="position: fixed;right: 5%;bottom: 20%; z-index: 999; display: none;">
+    <i class="fas fa-arrow-circle-up fa-5x"></i>
+</div>
+<nav class="navbar">
     <div class="container">
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item">
                     <i class="fas fa-camera-retro fa-5x"></i>&nbsp;
-                    <p style="font-size: 50px"><strong>Gif Gallery</strong></p>
+                    <p style="font-size: 3.0rem"><strong>Gif Gallery</strong></p>
                 </a>
             </div>
             <div class="navbar-menu">
                 <div class="navbar-start">
                     <div class="navbar-item">
                         <i class="fas fa-home fa-4x"></i>
-                        <p style="font-size: 30px;"><strong style="color: black">首页</strong></p>
+                        <p style="font-size: 2.0rem;"><strong style="color: black">首页</strong></p>
                     </div>
                     <div class="navbar-item">
                         <i class="fas fa-film fa-4x"></i>
-                        <p style="font-size: 30px;"><strong style="color: black">电影</strong></p>
+                        <p style="font-size: 2.0rem;"><strong style="color: black">电影</strong></p>
                     </div>
                     <div class="navbar-item">
                         <i class="fab fa-weixin fa-4x"></i>
-                        <p style="font-size: 30px;"><strong style="color: black">表情</strong></p>
+                        <p style="font-size: 2.0rem;"><strong style="color: black">表情</strong></p>
                     </div>
                     <div class="navbar-item">
                         <i class="fas fa-female fa-4x"></i>
-                        <p style="font-size: 30px;"><strong style="color: black">美女</strong></p>
+                        <p style="font-size: 2.0rem;"><strong style="color: black">美女</strong></p>
                     </div>
                     <div class="navbar-item">
                         <i class="fas fa-envelope fa-2x"></i>
-                        <p style="font-size: 20px;"><strong style="color: black">联系我们</strong></p>
+                        <p style="font-size: 1.0rem;"><strong style="color: black">联系我们</strong></p>
                     </div>
                 </div>
                 <div class="navbar-end">
@@ -53,7 +56,7 @@
         </nav>
     </div>
 </nav>
-<div class="container" style="margin-top: 150px" id="container">
+<div class="container" style="margin-top: 3.0rem" id="container">
     <div class="multiLoad" v-for="list in lists">
         <div class="tile is-ancestor">
             <div class="tile is-vertical is-7">
@@ -104,7 +107,7 @@
     </div>
     <div class="container">
         <div class="content has-text-centered">
-            <a class="button" v-on:click="loadMore" style="width: 960px; margin-top:50px; margin-bottom: 100px"><strong>加载更多...</strong></a>
+            <a class="button" v-on:click="loadMore" style="width: 90%; margin-top: 2.0rem; margin-bottom: 5.0rem"><strong>加载更多...</strong></a>
         </div>
     </div>
 </div>
@@ -199,8 +202,18 @@
         }
     });
 
-    function getGifList(){
+    toTop.onclick = function(){
+        scrollTo(0,0);
+    }
 
+    window.onscroll = function(){
+        var t = document.documentElement.scrollTop || document.body.scrollTop;
+        var toTop = document.getElementById( "toTop" );
+        if( t >= 5000 ) { //判断
+            toTop.style.display = "inline";
+        } else {
+            toTop.style.display = "none";
+        }
     }
 
     function setCookie(c_name,value,expiredays)

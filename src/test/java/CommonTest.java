@@ -14,11 +14,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class CommonTest {
 
     @Autowired
+    Crawler crawler1;
+    @Autowired
     Crawler crawler2;
 
     @Test
     public void test(){
-        crawler2.doCrawl(3);
+        crawler1.doCrawl(3);
         while (true){
 
         }

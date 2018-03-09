@@ -16,7 +16,7 @@
 
     <bean id="crawler1" class="com.crawler.job.gifdx.net.CrawlerImpl">
         <property name="baseUrl" value="http://gifdx.net/page/"/>
-        <property name="pageCount" value="100"/>
+        <property name="pageCount" value="200"/>
     </bean>
 
     <bean id="crawler2" class="com.crawler.job.www.fuliwc.info.CrawlerImpl">

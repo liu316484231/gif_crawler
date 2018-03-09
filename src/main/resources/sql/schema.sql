@@ -9,6 +9,7 @@ CREATE TABLE `pic` (
   `source` varchar(20) NOT NULL DEFAULT ' ' COMMENT '爬虫来源',
   `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '0-无效，1-有效',
   `my_url` varchar(100) NOT NULL DEFAULT '' COMMENT '后期使用',
+  `origin` varchar(500) NOT NULL DEFAULT '' COMMENT '来源',
   PRIMARY KEY (`id`),
   UNIQUE KEY `u_url` (`url`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

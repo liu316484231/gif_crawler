@@ -174,7 +174,7 @@
             idMap : {}
         },
         created: function () {
-            setCookie("user", _.uniqueId("游客") , 10);
+            setCookie("user", getRandName("游客",6) , 10);
             var _self = this;
             $.get("/getGifList?pageNum=" + _self.pageNum + "&pageSize=" + _self.pageSize, function (data) {
                 var list = data.data;
@@ -223,10 +223,11 @@
 
     function setCookie(c_name,value,expiredays)
     {
-        var exdate=new Date()
-        exdate.setDate(exdate.getDate() + expiredays)
-        document.cookie=c_name+ "=" +escape(value)+
-                ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+        if(getCookie(c_name) == null || getCookie(c_name) == "") {
+            var exdate = new Date()
+            exdate.setDate(exdate.getDate() + expiredays)
+            document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+        }
     }
 
     function getCookie(c_name)
@@ -243,6 +244,13 @@
             }
         }
         return ""
+    }
+    function getRandName(prefix, num){
+        var tmp = "";
+        for(var i = 0; i < num; i++){
+            tmp += _.random(9);
+        }
+        return prefix + tmp;
     }
 </script>
 </html>

@@ -2,9 +2,9 @@ server:
   port: 9091
 
 mysql:
-  url: jdbc:mysql://10.18.35.136:3307/dbtest?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;autoReconnectForPools=true
-  username: fdbuser
-  password: Wslm:11Wps
+  url: jdbc:mysql://localhost:3306/dbtest?zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;autoReconnectForPools=true
+  username: root
+  password: root
 
 spring:
   mvc:

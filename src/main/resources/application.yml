@@ -16,3 +16,14 @@ spring:
   profiles:
     active: test
 
+redis:
+  r1:
+    host: 127.0.0.1
+    port: 6379
+  r2:
+    host: 127.0.0.1
+    port: 6379
+  r3:
+    host: 127.0.0.1
+    port: 6379
+

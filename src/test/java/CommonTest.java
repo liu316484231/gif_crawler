@@ -17,10 +17,13 @@ public class CommonTest {
 
     @Autowired
     Crawler crawler1;
+    @Autowired
+    Crawler crawler2;
 
     @Test
     public void test(){
         crawler1.doCrawl(3);
+        crawler2.doCrawl(3);
         while (true){
 
         }

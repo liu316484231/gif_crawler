@@ -39,6 +39,7 @@ public class CrawlerImpl extends CommonCrawler{
             pic.setTitle(picRemarks);
             pic.setRemarks(picRemarks);
             pic.setUrl(picUrl);
+            pic.setCategory(2);
             pic.setSource("gifdx.net");
             picService.save(pic);
         }

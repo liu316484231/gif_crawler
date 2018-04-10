@@ -3,10 +3,10 @@
     <title>Gif Gallery</title>
     <script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/vue.min.js"></script>
-    <link rel="stylesheet" href="stylesheets/animate.min.css">
-    <link rel="stylesheet" href="stylesheets/bulma.css">
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="stylesheets/animate.min.css"/>
+    <link rel="stylesheet" href="stylesheets/bulma.css"/>
+    <link rel="stylesheet" href="stylesheets/style.css"/>
+    <link rel="shortcut icon" href="images/favicon.ico"/>
     <script src="javascripts/font.js"></script>
     <script src="javascripts/lodash.js"></script>
     <meta charset="utf-8"/>
@@ -269,14 +269,14 @@
 
     //bulma框架的一个js
     document.addEventListener('DOMContentLoaded', function () {
-        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-        if ($navbarBurgers.length > 0) {
-            $navbarBurgers.forEach(function ($el) {
-                $el.addEventListener('click', function () {
-                    var target = $el.dataset.target;
-                    var $target = document.getElementById(target);
-                    $el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
+        var navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if (navbarBurgers.length > 0) {
+            navbarBurgers.forEach(function (el) {
+                el.addEventListener('click', function () {
+                    var target = el.dataset.target;
+                    var target0 = document.getElementById(target);
+                    el.classList.toggle('is-active');
+                    target0.classList.toggle('is-active');
                 });
             });
         }

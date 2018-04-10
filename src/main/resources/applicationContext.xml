@@ -48,43 +48,4 @@
         <property name="maxPoolSize" value="200" />
         <property name="queueCapacity" value="200" />
     </bean>
-
-    <bean id="jedisConnFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
-        <constructor-arg ref="clusterConfig" />
-        <constructor-arg ref="jedisPoolConfig" />
-    </bean>
-    <bean id="clusterConfig" class="org.springframework.data.redis.connection.RedisClusterConfiguration">
-        <property name="clusterNodes">
-            <list>
-                <ref bean="redisNode1" />
-                <ref bean="redisNode2" />
-                <ref bean="redisNode3" />
-            </list>
-        </property>
-    </bean>
-
-    <bean id="redisNode1" class="org.springframework.data.redis.connection.RedisNode">
-        <constructor-arg value="${redis.r1.host}" />
-        <constructor-arg value="${redis.r1.port}" />
-    </bean>
-
-    <bean id="redisNode2" class="org.springframework.data.redis.connection.RedisNode">
-        <constructor-arg value="${redis.r2.host}" />
-        <constructor-arg value="${redis.r2.port}" />
-    </bean>
-
-    <bean id="redisNode3" class="org.springframework.data.redis.connection.RedisNode">
-        <constructor-arg value="${redis.r3.host}" />
-        <constructor-arg value="${redis.r3.port}" />
-    </bean>
-
-    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <property name="maxTotal" value="512" />
-        <property name="maxWaitMillis" value="1000" />
-    </bean>
-
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">
-        <property name="connectionFactory" ref="jedisConnFactory" />
-    </bean>
-
 </beans>

@@ -12,6 +12,7 @@ public class PageController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
-        return "/home";
+        System.out.print("index page");
+        return "home";
     }
 }
